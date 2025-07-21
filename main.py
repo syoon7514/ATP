@@ -14,14 +14,13 @@ st.markdown("""
 # ------------------------
 # 🌟 Experiment Parameters
 # ------------------------
-col1, col2 = st.columns(2)
-
-with col1:
+with st.sidebar:
+    st.header("🔧 실험 조건 설정")
     mRNA = st.checkbox("Inject external mRNA (vaccine mimic)", value=False)
-    inhibitor = st.checkbox("Apply HDAC inhibitor (blocks histone deacetylation)", value=False)
-
-with col2:
+    inhibitor = st.checkbox("Apply HDAC inhibitor", value=False)
     inhibitor_strength = st.slider("HDAC Inhibitor Intensity (%)", 0, 100, 0 if not inhibitor else 50)
+
+
 
 # ------------------------
 # 🔬 Simulation Logic
