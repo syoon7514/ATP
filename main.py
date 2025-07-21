@@ -11,16 +11,19 @@ st.markdown("""
 외부 mRNA의 주입 유무, 그리고 **히스톤 탈아세틸화 억제제(HDAC inhibitor)**의 적용 및 강도를 조절하여 다양한 분자적 조건에서의 유전자 발현 결과를 시각화할 수 있습니다.
 """)
 
+st.page_link("Page2", label="📄 실험 설명 보기")
+
 # ------------------------
 # 🌟 Experiment Parameters
 # ------------------------
-with st.sidebar:
-    st.header("🔧 실험 조건 설정")
+col1, col2 = st.columns(2)
+
+with col1:
     mRNA = st.checkbox("Inject external mRNA (vaccine mimic)", value=False)
-    inhibitor = st.checkbox("Apply HDAC inhibitor", value=False)
+    inhibitor = st.checkbox("Apply HDAC inhibitor (blocks histone deacetylation)", value=False)
+
+with col2:
     inhibitor_strength = st.slider("HDAC Inhibitor Intensity (%)", 0, 100, 0 if not inhibitor else 50)
-
-
 
 # ------------------------
 # 🔬 Simulation Logic
